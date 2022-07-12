@@ -37,9 +37,9 @@ def get_model_input(diagnoses, sex_map, age_map, bmi_map):
     model_input = diagnoses[["phecode", "phenotype", "cluster_status", "UniqueSampleID"]].drop_duplicates()
     model_input = diagnoses.dropna()
 
-#     add_data("sex", sex_map, model_input)
-#     add_data("age", age_map, model_input)
-#     add_data("bmi", bmi_map, model_input)
+    add_data("sex", sex_map, model_input)
+    add_data("age", age_map, model_input)
+    add_data("bmi", bmi_map, model_input)
 
     return model_input
 
@@ -83,9 +83,9 @@ if __name__ == "__main__":
             group2 = i
 
             if group1 < group2:
-                output_file = f"phecodes/precompute/no_correct/group{group1}_group{group2}.csv"
+                output_file = f"phecodes/group{group1}_group{group2}.csv"
             else:
-                output_file = f"phecodes/precompute/no_correct/group{group2}_group{group1}.csv"
+                output_file = f"phecodes/group{group2}_group{group1}.csv"
 
 
             if not path.exists(output_file) and not group1 == group2:
