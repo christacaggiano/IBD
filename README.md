@@ -1,2 +1,7 @@
-# IBD
-code for analyzing IBD networks 
+# IBD Analysis
+
+## Description
+
+## Dependencies
+
+## Citation
