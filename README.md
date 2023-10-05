@@ -45,4 +45,4 @@ This code is a work in progress and will be updated to improve usability. If you
 
 ## Citation
 
-Caggiano et al, Health care utilization of fine-scale identity by descent clusters in a Los Angeles biobank
+Caggiano, C., Boudaie, A., Shemirani, R., Mefford, J., Petter, E., Chiu, A., Ercelen, D., He, R., Tward, D., Paul, K.C., Chang, T.S., Pasaniuc, B., Kenny, E.E., Shortt, J.A., Gignoux, C.R., Balliu, B., Arboleda, V.A., Belbin, G., Zaitlen, N., 2023. Disease risk and healthcare utilization among ancestrally diverse groups in the Los Angeles region. Nat Med 29, 1845–1856. https://doi.org/10.1038/s41591-023-02425-1
