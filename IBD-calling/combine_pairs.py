@@ -7,9 +7,18 @@ from bisect import *
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def write_output(output_file, pair_dict): 
+def write_output(output_file, pair_dict, output_file_type): 
     
-    pkl.dump(pair_dict, open(output_file, "wb"))
+    if output_file_type == "pkl": 
+        pkl.dump(pair_dict, open(f"{output_file}.pkl", "wb"))
+
+    else: 
+        with open(f"{output_file}.csv", "w") as csv_file:  
+            writer = csv.writer(csv_file)
+
+            for key, value in pair_dict.items():
+                writer.writerow([key[0], key[1], value[0], value[1]])
+
     
 def strip_char(value): 
         return value[:-2]
@@ -83,19 +92,19 @@ def add_pair(line, outlier_starts, outlier_ends, pair_dict):
             else: 
                 pair_dict[(ind1, ind2)] = [ibd, 1]
 
-
             
 if __name__ == "__main__":
     
     chrom = int(sys.argv[1])
     
-    pair_dict = {}
-    
     input_file = str(sys.argv[2])  
 
     output_file = sys.argv[3]
     outlier_file = sys.argv[4]
-    
+    output_file_type = sys.argv[5]
+
+    pair_dict = {}
+
     outliers = pd.read_csv(outlier_file, delimiter="\t", header=None)
     chrom_outliers = outliers[outliers[0] == chrom]
 
@@ -107,6 +116,6 @@ if __name__ == "__main__":
         
         for line in input_reader: 
             add_pair(line, outlier_starts, outlier_ends, pair_dict) 
-    
-    write_output(output_file, pair_dict) 
+
+    write_output(output_file, pair_dict, output_file_type) 
    
